@@ -31,6 +31,7 @@ export function Header() {
                 </svg>
               </div>
               <span className="text-xl font-semibold text-white">Logic Pro MCP</span>
+              <span className="ml-2 text-xs px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-medium">Beta</span>
             </Link>
           </div>
           

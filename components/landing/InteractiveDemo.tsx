@@ -121,45 +121,51 @@ export function InteractiveDemo() {
           </p>
         </motion.div>
 
-        <div className="mx-auto max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="mx-auto max-w-4xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Command Selection */}
-            <div className="lg:col-span-1 space-y-4">
-              <h3 className="text-sm font-medium text-gray-400 uppercase tracking-wider mb-4">
+            <div className="space-y-4">
+              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
                 Try These Commands
               </h3>
-              {demoCommands.map((demo, index) => {
-                const Icon = demo.icon
-                return (
-                  <motion.button
-                    key={demo.id}
-                    onClick={() => setActiveCommand(index)}
-                    className={`w-full text-left p-4 rounded-lg border transition-all ${
-                      activeCommand === index
-                        ? 'bg-logic-purple/20 border-logic-purple text-white'
-                        : 'bg-gray-900/50 border-gray-800 text-gray-300 hover:bg-gray-800/50'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="flex items-start gap-3">
-                      <Icon className={`w-5 h-5 mt-0.5 ${
-                        activeCommand === index ? 'text-logic-purple' : 'text-gray-500'
-                      }`} />
-                      <span className="text-sm font-medium">{demo.command}</span>
-                    </div>
-                  </motion.button>
-                )
-              })}
+              <div className="space-y-3">
+                {demoCommands.map((demo, index) => {
+                  const Icon = demo.icon
+                  return (
+                    <motion.button
+                      key={demo.id}
+                      onClick={() => setActiveCommand(index)}
+                      className={`w-full text-left p-4 rounded-xl border transition-all ${
+                        activeCommand === index
+                          ? 'bg-gradient-to-r from-logic-purple/20 to-purple-900/20 border-logic-purple text-white shadow-lg shadow-logic-purple/20'
+                          : 'bg-gray-900/30 border-gray-800 text-gray-400 hover:bg-gray-800/50 hover:text-gray-300'
+                      }`}
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className={`p-2 rounded-lg ${
+                          activeCommand === index ? 'bg-logic-purple/20' : 'bg-gray-800/50'
+                        }`}>
+                          <Icon className={`w-4 h-4 ${
+                            activeCommand === index ? 'text-logic-purple' : 'text-gray-500'
+                          }`} />
+                        </div>
+                        <span className="text-sm font-medium leading-tight">{demo.command}</span>
+                      </div>
+                    </motion.button>
+                  )
+                })}
+              </div>
             </div>
 
             {/* Terminal Display */}
-            <div className="lg:col-span-2">
+            <div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-                className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden"
+                className="bg-gray-900 rounded-xl border border-gray-800 overflow-hidden h-full flex flex-col"
               >
                 <div className="flex items-center justify-between px-4 py-3 bg-gray-800/50 border-b border-gray-700">
                   <div className="flex items-center gap-2">
@@ -173,58 +179,63 @@ export function InteractiveDemo() {
                   </div>
                 </div>
 
-                <div className="p-6 font-mono text-sm">
+                <div className="p-6 font-mono text-sm h-full flex flex-col">
                   <div className="mb-4">
                     <span className="text-logic-purple">$</span>
-                    <span className="text-gray-300 ml-2">
+                    <span className="text-gray-300 ml-2 text-xs">
                       {demoCommands[activeCommand].command}
                     </span>
                   </div>
 
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      key={activeCommand}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="space-y-2"
-                    >
-                      {displayedLines.map((line, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.1 }}
-                          className="text-gray-400"
-                        >
-                          {line}
-                        </motion.div>
-                      ))}
-                      {isTyping && (
-                        <span className="inline-block w-2 h-4 bg-logic-purple animate-pulse" />
-                      )}
-                    </motion.div>
-                  </AnimatePresence>
+                  <div className="relative flex-1 min-h-[120px] overflow-hidden">
+                    <AnimatePresence mode="wait">
+                      <motion.div
+                        key={activeCommand}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="space-y-2 absolute inset-0"
+                      >
+                        {displayedLines.map((line, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.3, delay: index * 0.1 }}
+                            className="text-gray-400"
+                          >
+                            {line}
+                          </motion.div>
+                        ))}
+                        {isTyping && (
+                          <span className="inline-block w-2 h-4 bg-logic-purple animate-pulse" />
+                        )}
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
                 </div>
               </motion.div>
 
-              {/* Logic Pro UI Preview */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-6 p-4 bg-gradient-to-r from-orange-500/10 to-orange-600/10 rounded-lg border border-orange-500/20"
-              >
-                <p className="text-sm text-orange-400 font-medium mb-2">
-                  Logic Pro responds in real-time
-                </p>
-                <p className="text-xs text-gray-400">
-                  Your AI assistant executes commands directly in Logic Pro, creating tracks, 
-                  applying effects, and generating music based on your natural language input.
-                </p>
-              </motion.div>
             </div>
           </div>
+
+          {/* Info Box */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-8 mx-auto max-w-2xl"
+          >
+            <div className="p-6 bg-gradient-to-r from-orange-500/10 to-orange-600/10 rounded-xl border border-orange-500/20 text-center">
+              <h4 className="text-base font-semibold text-orange-400 mb-2">
+                Logic Pro responds in real-time
+              </h4>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Your AI assistant executes commands directly in Logic Pro, creating tracks, 
+                applying effects, and generating music based on your natural language input.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

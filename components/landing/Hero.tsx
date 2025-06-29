@@ -23,10 +23,13 @@ export function Hero() {
           >
             <div className="mb-8 flex justify-center">
               <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-300 ring-1 ring-gray-800 hover:ring-gray-700">
-                Announcing the project:{' '}
-                <Link href="/roadmap" className="font-semibold text-logic-blue">
+                <span className="inline-flex items-center gap-2">
+                  <span className="text-xs px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-medium">Beta</span>
+                  Now accepting beta testers
+                </span>
+                <Link href="/roadmap" className="font-semibold text-logic-blue ml-1">
                   <span className="absolute inset-0" aria-hidden="true" />
-                  View our development roadmap <span aria-hidden="true">&rarr;</span>
+                  View roadmap <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </div>
@@ -38,8 +41,7 @@ export function Hero() {
             
             <p className="mt-6 text-lg leading-8 text-gray-300">
               Control Logic Pro with AI assistants. Create tracks, generate music, apply effects, 
-              and manage projects using natural language. The first comprehensive MCP server for 
-              professional music production.
+              and manage projects using natural language. Currently in beta testing phase.
             </p>
             
             <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -48,7 +50,7 @@ export function Hero() {
                   href="/docs"
                   className="group relative rounded-md bg-logic-blue px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-logic-blue transition-all flex items-center gap-2 overflow-hidden"
                 >
-                  <span className="relative z-10">Get Started</span>
+                  <span className="relative z-10">Join Beta</span>
                   <ArrowRight className="w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-logic-purple to-logic-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
