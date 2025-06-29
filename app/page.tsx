@@ -3,7 +3,7 @@ import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/landing/Hero'
 import { InteractiveDemo } from '@/components/landing/InteractiveDemo'
 import { Features } from '@/components/landing/Features'
-import { CodeExamples } from '@/components/landing/CodeExamples'
+import { CTA } from '@/components/landing/CTA'
 
 export default function HomePage() {
   return (
@@ -13,7 +13,7 @@ export default function HomePage() {
         <Hero />
         <InteractiveDemo />
         <Features />
-        <CodeExamples />
+        <CTA />
       </main>
       <Footer />
     </>

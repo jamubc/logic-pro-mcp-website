@@ -22,16 +22,16 @@ export function Hero() {
             transition={{ duration: 0.5 }}
           >
             <div className="mb-8 flex justify-center">
-              <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-300 ring-1 ring-gray-800 hover:ring-gray-700">
+              <Link href="/roadmap" className="group relative inline-flex items-center gap-3 rounded-full px-4 py-2 text-sm ring-1 ring-gray-800 hover:ring-gray-700 transition-all">
                 <span className="inline-flex items-center gap-2">
                   <span className="text-xs px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-medium">Beta</span>
-                  Currently in development
+                  <span className="text-gray-300">Currently in development</span>
                 </span>
-                <Link href="/roadmap" className="font-semibold text-logic-blue ml-1">
-                  <span className="absolute inset-0" aria-hidden="true" />
+                <span className="mx-2 h-4 w-px bg-gray-700" />
+                <span className="font-semibold text-logic-blue group-hover:text-blue-400 transition-colors">
                   View roadmap <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </div>
+                </span>
+              </Link>
             </div>
             
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white text-center">
@@ -47,7 +47,7 @@ export function Hero() {
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 <Link
-                  href="/docs"
+                  href="/install"
                   className="group relative rounded-md bg-logic-blue px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-logic-blue transition-all flex items-center gap-2 overflow-hidden"
                 >
                   <span className="relative z-10">Get Notified</span>
