@@ -30,7 +30,7 @@ export function Features() {
           <p className="mt-6 text-lg leading-8 text-gray-300">
             From basic transport control to advanced music theory generation, 
             control every aspect of Logic Pro with natural language. 
-            <span className="text-blue-400">Currently in beta testing.</span>
+            <span className="text-blue-400">Beta release coming soon.</span>
           </p>
         </div>
 

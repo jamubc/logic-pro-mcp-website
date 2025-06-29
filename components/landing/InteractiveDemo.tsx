@@ -114,10 +114,10 @@ export function InteractiveDemo() {
             <Sparkles className="w-5 h-5 text-logic-purple" />
           </div>
           <p className="text-3xl font-bold text-white sm:text-4xl">
-            See Logic Pro MCP in Action
+            Preview Logic Pro MCP
           </p>
           <p className="mt-4 text-lg text-gray-300">
-            Watch how natural language transforms into professional music production
+            See how natural language will transform music production (demo preview)
           </p>
         </motion.div>
 

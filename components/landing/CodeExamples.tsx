@@ -9,9 +9,9 @@ const installMethods = [
     id: 'github',
     name: 'GitHub',
     icon: Code2,
-    label: 'Beta Testing',
+    label: 'Coming Soon',
     code: `pip install git+https://github.com/jamubc/logic-pro-mcp.git`,
-    description: 'Install beta version from GitHub'
+    description: 'Install development version from GitHub'
   },
   {
     id: 'pypi',
@@ -86,10 +86,10 @@ export function CodeExamples() {
             <Sparkles className="w-5 h-5 text-logic-purple" />
           </div>
           <p className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Get Started in Minutes
+            Get Ready for Launch
           </p>
           <p className="mt-4 text-lg text-gray-300">
-            Install Logic Pro MCP and start creating music with AI
+            Logic Pro MCP will be available soon for Claude Desktop and Claude Code
           </p>
         </motion.div>
 
@@ -105,7 +105,7 @@ export function CodeExamples() {
               <div className="w-8 h-8 rounded-full bg-logic-purple flex items-center justify-center text-white font-bold">
                 1
               </div>
-              <h3 className="text-xl font-semibold text-white">Install Logic Pro MCP</h3>
+              <h3 className="text-xl font-semibold text-white">Installation Options</h3>
             </div>
 
             <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-6">
@@ -123,11 +123,7 @@ export function CodeExamples() {
                     <method.icon className="w-4 h-4" />
                     {method.name}
                     {method.label && (
-                      <span className={`text-xs px-2 py-0.5 rounded ${
-                        method.id === 'pypi' 
-                          ? 'bg-orange-500/20 text-orange-400' 
-                          : 'bg-blue-500/20 text-blue-400'
-                      }`}>
+                      <span className="text-xs px-2 py-0.5 rounded bg-orange-500/20 text-orange-400">
                         {method.label}
                       </span>
                     )}
@@ -242,15 +238,17 @@ export function CodeExamples() {
             className="mt-12 text-center p-8 bg-gradient-to-r from-logic-purple/20 to-purple-900/20 rounded-xl border border-logic-purple/30"
           >
             <Terminal className="w-12 h-12 text-logic-purple mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">You're All Set!</h3>
+            <h3 className="text-xl font-bold text-white mb-2">Coming Soon!</h3>
             <p className="text-gray-300 mb-6">
-              Start using natural language to control Logic Pro
+              Be the first to know when Logic Pro MCP launches
             </p>
             <a
-              href="/docs"
+              href="https://github.com/jamubc/logic-pro-mcp"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-logic-purple hover:text-purple-400 transition-colors"
             >
-              View Documentation
+              Watch on GitHub
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
