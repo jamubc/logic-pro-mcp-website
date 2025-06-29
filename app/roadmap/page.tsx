@@ -79,54 +79,86 @@ export default function RoadmapPage() {
             </p>
           </motion.div>
 
-          <div className="mx-auto mt-16 max-w-4xl">
-            {roadmapItems.map((phase, phaseIndex) => (
-              <motion.div
-                key={phase.phase}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: phaseIndex * 0.1 }}
-                className="mb-12"
-              >
-                <div className="flex items-center mb-6">
-                  <div className={`w-4 h-4 rounded-full mr-4 ${
-                    phase.status === 'completed' ? 'bg-green-500' :
-                    phase.status === 'in-progress' ? 'bg-logic-purple' :
-                    'bg-gray-600'
-                  }`} />
-                  <h2 className="text-2xl font-bold text-white">{phase.phase}</h2>
-                  {phase.status === 'in-progress' && (
-                    <span className="ml-4 text-sm text-logic-purple font-medium">In Progress</span>
-                  )}
-                </div>
-                
-                <div className="ml-8 space-y-4">
-                  {phase.items.map((item, itemIndex) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3, delay: phaseIndex * 0.1 + itemIndex * 0.05 }}
-                      className="flex items-start"
-                    >
-                      <div className="mr-4 mt-1">
-                        {item.done ? (
-                          <CheckCircle className="w-5 h-5 text-green-500" />
-                        ) : (
-                          <Circle className="w-5 h-5 text-gray-600" />
+          <div className="mx-auto mt-16 max-w-6xl relative">
+            <div className="absolute inset-0 flex items-center justify-center opacity-10">
+              <svg className="w-full h-full" viewBox="0 0 1000 800" preserveAspectRatio="none">
+                <path
+                  d="M 100 100 Q 500 100 500 200 T 900 200 Q 900 300 500 300 T 100 400 Q 100 500 500 500 T 900 600"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  fill="none"
+                  className="text-logic-purple"
+                />
+              </svg>
+            </div>
+            
+            {roadmapItems.map((phase, phaseIndex) => {
+              const isEven = phaseIndex % 2 === 0
+              const alignment = isEven ? 'items-start' : 'items-end'
+              const textAlign = isEven ? 'text-left' : 'text-right'
+              const margin = isEven ? 'mr-auto' : 'ml-auto'
+              
+              return (
+                <motion.div
+                  key={phase.phase}
+                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: phaseIndex * 0.1 }}
+                  className={`mb-16 flex ${alignment} relative`}
+                >
+                  <div className={`max-w-2xl ${margin}`}>
+                    <div className={`flex items-center mb-6 ${isEven ? '' : 'flex-row-reverse'}`}>
+                      <div className={`w-12 h-12 rounded-full ${isEven ? 'mr-4' : 'ml-4'} flex items-center justify-center relative ${
+                        phase.status === 'completed' ? 'bg-green-500' :
+                        phase.status === 'in-progress' ? 'bg-logic-purple' :
+                        'bg-gray-700'
+                      }`}>
+                        <span className="text-white font-bold">{phaseIndex + 1}</span>
+                        {phaseIndex < roadmapItems.length - 1 && (
+                          <div className={`absolute ${isEven ? '-right-4' : '-left-4'} top-1/2 transform -translate-y-1/2`}>
+                            <ArrowRight className={`w-6 h-6 text-gray-600 ${!isEven ? 'rotate-180' : ''}`} />
+                          </div>
                         )}
                       </div>
-                      <div className="flex-1">
-                        <h3 className={`font-medium ${item.done ? 'text-white' : 'text-gray-400'}`}>
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-gray-500 mt-1">{item.description}</p>
+                      <div className={textAlign}>
+                        <h2 className="text-2xl font-bold text-white">{phase.phase}</h2>
+                        {phase.status === 'in-progress' && (
+                          <span className="text-sm text-logic-purple font-medium">In Progress</span>
+                        )}
                       </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                    </div>
+                    
+                    <div className={`bg-logic-gray/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800`}>
+                      <div className="space-y-3">
+                        {phase.items.map((item, itemIndex) => (
+                          <motion.div
+                            key={item.title}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.3, delay: phaseIndex * 0.1 + itemIndex * 0.05 }}
+                            className={`flex items-start ${isEven ? '' : 'flex-row-reverse'}`}
+                          >
+                            <div className={`${isEven ? 'mr-3' : 'ml-3'} mt-1`}>
+                              {item.done ? (
+                                <CheckCircle className="w-4 h-4 text-green-500" />
+                              ) : (
+                                <Circle className="w-4 h-4 text-gray-600" />
+                              )}
+                            </div>
+                            <div className={`flex-1 ${textAlign}`}>
+                              <h3 className={`font-medium text-sm ${item.done ? 'text-white' : 'text-gray-400'}`}>
+                                {item.title}
+                              </h3>
+                              <p className="text-xs text-gray-500 mt-0.5">{item.description}</p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
           </div>
 
           <motion.div

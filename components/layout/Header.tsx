@@ -22,8 +22,13 @@ export function Header() {
         <div className="flex w-full items-center justify-between py-4">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-logic-blue rounded-md flex items-center justify-center">
-                <span className="text-white font-bold text-lg">L</span>
+              <div className="w-8 h-8 bg-logic-blue rounded-md flex items-center justify-center relative">
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 6v12h10M7 18h10" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
+                  <rect x="11" y="8" width="2" height="8" fill="white" opacity="0.8" />
+                  <rect x="14" y="10" width="2" height="4" fill="white" opacity="0.6" />
+                  <rect x="17" y="9" width="2" height="6" fill="white" opacity="0.4" />
+                </svg>
               </div>
               <span className="text-xl font-semibold text-white">Logic Pro MCP</span>
             </Link>

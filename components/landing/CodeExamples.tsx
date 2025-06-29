@@ -6,43 +6,33 @@ import { Copy, Check } from 'lucide-react'
 
 const examples = [
   {
+    title: 'Install via PyPI (Coming Soon)',
+    language: 'bash',
+    code: `# Install from PyPI
+pip install logic-pro-mcp
+
+# Or install from GitHub
+pip install git+https://github.com/jamubc/logic-pro-mcp.git`
+  },
+  {
     title: 'Claude Desktop Configuration',
     language: 'json',
     code: `{
   "mcpServers": {
     "logic-pro": {
       "command": "python",
-      "args": ["/path/to/logic-pro-mcp/server.py"],
-      "cwd": "/path/to/logic-pro-mcp"
+      "args": ["-m", "logic_pro_mcp"]
     }
   }
 }`
   },
   {
-    title: 'Create a Jazz Chord Progression',
-    language: 'text',
-    code: `User: Create a jazz chord progression in G major
-
-AI: I'll create a jazz chord progression in G major for you.
-
-✓ Created MIDI track "Jazz Chords G"
-✓ Generated: Gmaj7 - Bm7 - Em7 - Am7 - D7 - Gmaj7
-✓ Added jazz voicings with 7th extensions
-✓ Set tempo to 120 BPM`
+    title: 'Claude Code Configuration',
+    language: 'bash',
+    code: `# Add Logic Pro MCP to Claude Code
+claude mcp add logic-pro \\
+  --python logic_pro_mcp`
   },
-  {
-    title: 'Apply Vocal Processing',
-    language: 'text',
-    code: `User: Add professional vocal processing to the lead vocal track
-
-AI: I'll apply a complete vocal chain to your lead vocal track.
-
-✓ Added Channel EQ with gentle high-frequency boost
-✓ Inserted Compressor (Ratio 3:1, Threshold -15dB)
-✓ Added ChromaVerb on Send 1 (15% mix)
-✓ Applied Tape Delay on Send 2 (10% mix)
-✓ Enabled Channel Strip's built-in Gate`
-  }
 ]
 
 export function CodeExamples() {
@@ -65,11 +55,11 @@ export function CodeExamples() {
             Get Started in Minutes
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-300">
-            Configure Claude Desktop, install the server, and start creating music with AI.
+            Available for Claude Desktop and Claude Code. Install from PyPI or GitHub.
           </p>
         </div>
 
-        <div className="mx-auto mt-16 max-w-7xl">
+        <div className="mx-auto mt-16 max-w-5xl">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {examples.map((example, index) => (
               <motion.div
@@ -109,45 +99,38 @@ export function CodeExamples() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <div className="rounded-2xl bg-gradient-to-r from-logic-purple/10 to-purple-900/10 p-8">
-            <h3 className="text-xl font-bold text-white mb-4">Quick Start Steps</h3>
-            <ol className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
-              <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-logic-purple rounded-full flex items-center justify-center text-white font-semibold mr-3">
-                  1
-                </span>
-                <div>
-                  <p className="font-medium">Install Dependencies</p>
-                  <p className="text-sm text-gray-400 mt-1">Python 3.10+ and Logic Pro on macOS</p>
+            <h3 className="text-xl font-bold text-white mb-4">Supported Platforms</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-logic-dark/50 rounded-lg p-6 border border-gray-800">
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-blue-400 font-bold">CD</span>
+                  </div>
+                  <h4 className="text-lg font-semibold text-white">Claude Desktop</h4>
                 </div>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-logic-purple rounded-full flex items-center justify-center text-white font-semibold mr-3">
-                  2
-                </span>
-                <div>
-                  <p className="font-medium">Clone Repository</p>
-                  <p className="text-sm text-gray-400 mt-1">git clone logic-pro-mcp</p>
+                <p className="text-gray-300 text-sm">Full support for Claude Desktop app on macOS. Configure once and use Logic Pro tools in every conversation.</p>
+                <div className="mt-4">
+                  <span className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded">✓ Available Now</span>
                 </div>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-logic-purple rounded-full flex items-center justify-center text-white font-semibold mr-3">
-                  3
-                </span>
-                <div>
-                  <p className="font-medium">Configure Claude</p>
-                  <p className="text-sm text-gray-400 mt-1">Add to Claude Desktop config</p>
+              </div>
+              <div className="bg-logic-dark/50 rounded-lg p-6 border border-gray-800">
+                <div className="flex items-center mb-3">
+                  <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center mr-3">
+                    <span className="text-purple-400 font-bold">CC</span>
+                  </div>
+                  <h4 className="text-lg font-semibold text-white">Claude Code</h4>
                 </div>
-              </li>
-              <li className="flex items-start">
-                <span className="flex-shrink-0 w-8 h-8 bg-logic-purple rounded-full flex items-center justify-center text-white font-semibold mr-3">
-                  4
-                </span>
-                <div>
-                  <p className="font-medium">Start Creating</p>
-                  <p className="text-sm text-gray-400 mt-1">Open Logic Pro and chat with AI</p>
+                <p className="text-gray-300 text-sm">Use Logic Pro MCP with Claude Code CLI for advanced music production workflows and automation.</p>
+                <div className="mt-4">
+                  <span className="text-xs text-gray-400 bg-gray-800 px-2 py-1 rounded">✓ Available Now</span>
                 </div>
-              </li>
-            </ol>
+              </div>
+            </div>
+            <div className="mt-6 p-4 bg-gradient-to-r from-logic-blue/10 to-blue-900/10 rounded-lg border border-blue-900/20">
+              <p className="text-sm text-gray-300">
+                <span className="text-logic-blue font-semibold">Coming Soon:</span> Official PyPI package for easy installation with pip. Currently available via GitHub repository.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

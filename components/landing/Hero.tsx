@@ -6,7 +6,14 @@ import { motion } from 'framer-motion'
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-24">
+    <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-24 overflow-hidden">
+      {/* Animated Gradient Mesh Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-logic-dark" />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-logic-purple/20 rounded-full filter blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-logic-blue/10 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '4s' }} />
+      </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <motion.div
@@ -16,17 +23,17 @@ export function Hero() {
           >
             <div className="mb-8 flex justify-center">
               <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-300 ring-1 ring-gray-800 hover:ring-gray-700">
-                Announcing 30+ tools for Logic Pro control.{' '}
-                <Link href="/docs" className="font-semibold text-logic-blue">
+                Announcing the project:{' '}
+                <Link href="/roadmap" className="font-semibold text-logic-blue">
                   <span className="absolute inset-0" aria-hidden="true" />
-                  Read more <span aria-hidden="true">&rarr;</span>
+                  View our development roadmap <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </div>
             
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              AI-Powered Music Production with{' '}
-              <span className="text-logic-blue">Logic Pro</span>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white text-center">
+              <div>Natural Language Music Production</div>
+              <div className="text-orange-500 text-xl sm:text-2xl md:text-3xl mt-2">with Logic Pro + Logic Pro MCP</div>
             </h1>
             
             <p className="mt-6 text-lg leading-8 text-gray-300">
@@ -36,22 +43,33 @@ export function Hero() {
             </p>
             
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Link
-                href="/docs"
-                className="rounded-md bg-logic-blue px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-logic-blue transition-colors flex items-center gap-2"
-              >
-                Get Started
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  href="/docs"
+                  className="group relative rounded-md bg-logic-blue px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-logic-blue transition-all flex items-center gap-2 overflow-hidden"
+                >
+                  <span className="relative z-10">Get Started</span>
+                  <ArrowRight className="w-4 h-4 relative z-10 transition-transform group-hover:translate-x-1" />
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-logic-purple to-logic-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={false}
+                  />
+                </Link>
+              </motion.div>
+              <motion.a
                 href="https://github.com/jamubc/logic-pro-mcp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+                className="group text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors flex items-center gap-2"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Github className="w-5 h-5" />
-                View on GitHub
-              </a>
+                <Github className="w-5 h-5 transition-transform group-hover:rotate-12" />
+                <span className="relative">
+                  View on GitHub
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all group-hover:w-full" />
+                </span>
+              </motion.a>
             </div>
           </motion.div>
           
@@ -98,15 +116,6 @@ export function Hero() {
         </div>
       </div>
       
-      <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-        <div
-          className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-logic-blue to-blue-900 opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-          style={{
-            clipPath:
-              'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
-          }}
-        />
-      </div>
     </section>
   )
 }
