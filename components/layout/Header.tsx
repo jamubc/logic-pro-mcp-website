@@ -22,7 +22,7 @@ export function Header() {
         <div className="flex w-full items-center justify-between py-4">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-logic-purple rounded-md flex items-center justify-center">
+              <div className="w-8 h-8 bg-logic-blue rounded-md flex items-center justify-center">
                 <span className="text-white font-bold text-lg">L</span>
               </div>
               <span className="text-xl font-semibold text-white">Logic Pro MCP</span>
@@ -36,7 +36,7 @@ export function Header() {
                 href={link.href}
                 className={`text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? 'text-logic-purple'
+                    ? 'text-logic-blue'
                     : 'text-gray-300 hover:text-white'
                 }`}
               >
@@ -78,7 +78,7 @@ export function Header() {
                   href={link.href}
                   className={`text-sm font-medium transition-colors ${
                     pathname === link.href
-                      ? 'text-logic-purple'
+                      ? 'text-logic-blue'
                       : 'text-gray-300 hover:text-white'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}

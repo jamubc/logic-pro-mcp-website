@@ -3,7 +3,7 @@ import { Github, Twitter, Mail } from 'lucide-react'
 
 export function Footer() {
   return (
-    <footer className="bg-logic-gray border-t border-gray-800">
+    <footer className="bg-logic-gray-light border-t border-gray-700">
       <div className="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-8">
           <div>

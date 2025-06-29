@@ -9,9 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'logic-purple': '#7B68EE',
-        'logic-dark': '#1a1a2e',
-        'logic-gray': '#2a2a3e',
+        'logic-blue': '#007AFF',
+        'logic-orange': '#FF9500',
+        'logic-green': '#30D158',
+        'logic-dark': '#1c1c1c',
+        'logic-gray': '#2c2c2c',
+        'logic-gray-light': '#3c3c3c',
+        'logic-gray-lighter': '#4c4c4c',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
