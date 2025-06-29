@@ -44,7 +44,7 @@ export function Header() {
               </Link>
             ))}
             <a
-              href="https://github.com/your-repo/logic-pro-mcp"
+              href="https://github.com/jamubc/logic-pro-mcp"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors"
@@ -87,7 +87,7 @@ export function Header() {
                 </Link>
               ))}
               <a
-                href="https://github.com/your-repo/logic-pro-mcp"
+                href="https://github.com/jamubc/logic-pro-mcp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors"

@@ -44,7 +44,7 @@ export function Hero() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
-                href="https://github.com/your-repo/logic-pro-mcp"
+                href="https://github.com/jamubc/logic-pro-mcp"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors flex items-center gap-2"

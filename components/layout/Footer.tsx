@@ -31,7 +31,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2">
               <li>
                 <a
-                  href="https://github.com/your-repo/logic-pro-mcp"
+                  href="https://github.com/jamubc/logic-pro-mcp"
                   className="text-sm text-gray-400 hover:text-white"
                   target="_blank"
                   rel="noopener noreferrer"

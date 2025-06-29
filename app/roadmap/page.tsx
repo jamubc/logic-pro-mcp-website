@@ -145,7 +145,7 @@ export default function RoadmapPage() {
                 Your feedback shapes our roadmap.
               </p>
               <a
-                href="https://github.com/your-repo/logic-pro-mcp/issues"
+                href="https://github.com/jamubc/logic-pro-mcp/issues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-md bg-logic-purple px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-purple-600 transition-colors"

@@ -97,7 +97,7 @@ export default function DocsPage() {
               <h3 className="text-2xl font-bold text-white mb-4">Quick Links</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <a
-                  href="https://github.com/your-repo/logic-pro-mcp/blob/main/README.md"
+                  href="https://github.com/jamubc/logic-pro-mcp/blob/main/README.md"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white transition-colors"
